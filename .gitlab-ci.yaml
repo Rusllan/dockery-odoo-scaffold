@@ -20,6 +20,14 @@ before_script:
 - export $(egrep -v '^#' .env | xargs)
 - chmod -R +x ./scripts
 
+Create-New-Branch:
+  stage: Pre-Build
+  only: 
+    - master
+  script:
+    # Еhere should be an addition of a branch and PR.
+    - git checkout -b ${BRANCH}
+  
 Update-Project-Image:
   stage: Pre-Build
   only: [branches]
